@@ -44,7 +44,7 @@ let csvBusy=false;
 let csvRequest=0;
 function applyCSV(text,source){
   const next=parseCSV(text);
-  csvUsers=next;activeCSVText=text;csvSource=source;if(!csvUsers.some(u=>u.user_id===selectedUserId))selectedUserId='';render();
+  csvUsers=next;activeCSVText=text;csvSource=source;if(!csvUsers.some(u=>u.user_id===selectedUserId))selectedUserId='';loadActiveState();render();
 }
 async function reloadCSV(){
   if(EMBEDDED_APP){toast('In Streamlit, use Refresh source CSV in the sidebar to reload the file. Import CSV also works here.');return;}

@@ -25,17 +25,21 @@ function readState(){
 let state=readState();
 let activeTab='dashboard';
 let toastTimeout;
-function persist(){saveWorkspace();}
+function persist(){saveLiveState();}
 function toast(message){$('#toast').textContent=message;$('#toast').hidden=false;clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>$('#toast').hidden=true,4000);}
 const uid = () => globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 const duration = seconds => {const n=Math.max(0,Math.floor(seconds));return `${String(Math.floor(n/3600)).padStart(2,'0')}:${String(Math.floor(n/60)%60).padStart(2,'0')}:${String(n%60).padStart(2,'0')}`;};
-const dateLabel = timestamp => new Date(timestamp).toLocaleDateString(undefined,{month:'short',day:'numeric'});
+const dateLabel = timestamp => new Date(typeof timestamp==='string'&&timestamp.length===10?timestamp+'T12:00:00':timestamp).toLocaleDateString(undefined,{month:'short',day:'numeric'});
 const timeLabel = timestamp => new Date(timestamp).toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'});
 const todayLogs = () => state.logs.filter(l=>dayKey(l.at)===dayKey());
-const totalFor = type => todayLogs().filter(l=>l.type===type).reduce((sum,l)=>sum+l.amount,0);
+const totalFor = type => totalForState(state,type);
+const completedFastCount = () => (state.baseline?.completed_fasts||0)+state.history.filter(f=>f.completed).length;
+const mealCount = () => (state.baseline?.snapshot_date===dayKey()?state.baseline.meals_logged:0)+todayLogs().filter(l=>l.type==='meal').length;
 const level = () => Math.floor(state.totalXP/500)+1;
 function streak(userState=state){
   const days=new Set(userState.history.filter(f=>f.completed).map(f=>dayKey(f.end)));
+  const baseline=userState.baseline;
+  if(baseline?.streak_days){const start=new Date(baseline.snapshot_date+'T12:00:00');for(let i=0;i<baseline.streak_days;i++){days.add(dayKey(start));start.setDate(start.getDate()-1);}}
   const cursor=new Date(); cursor.setHours(12,0,0,0);
   if(!days.has(dayKey(cursor)))cursor.setDate(cursor.getDate()-1);
   let count=0;while(days.has(dayKey(cursor))){count++;cursor.setDate(cursor.getDate()-1);}return count;
@@ -62,5 +66,5 @@ function addLog(type,label,amount,note=''){
 }
 function heading(eyebrow,title,description){return `<div class="page-heading"><div><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p>${description}</p></div><span class="date-pill">◷ &nbsp; ${new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric',year:'numeric'})}</span></div>`;}
 function metric(label,value,unit,note,icon){return `<article class="card metric"><div><div class="metric-label">${label}</div><div class="metric-value">${value}<small>${unit}</small></div><div class="metric-note">${note}</div></div><div class="icon-box" aria-hidden="true">${icon}</div></article>`;}
-function progress(value){const v=Math.max(0,Math.min(100,value));return `<div class="progress" role="progressbar" aria-label="Goal progress" aria-valuenow="${Math.round(v)}" aria-valuemin="0" aria-valuemax="100"><span style="--value:${v}%"></span></div>`;}
+function progress(value,label='Goal progress'){const v=Math.max(0,Math.min(100,value));return `<div class="progress" role="progressbar" aria-label="${escapeHTML(label)}" aria-valuenow="${Math.round(v)}" aria-valuemin="0" aria-valuemax="100"><span style="--value:${v}%"></span></div>`;}
 function ring(percent,content,running=false){return `<div class="ring ${running?'active':''}" style="--progress:${percent}" data-fast-ring><div class="ring-content">${content}</div></div>`;}

@@ -30,25 +30,26 @@ def diagram(name, title, description, boxes, arrows, height=400):
 
 def make_diagrams():
     IMAGES.mkdir(parents=True, exist_ok=True)
-    diagram("views.svg", "Two views, one CSV dataset", "The app opens as owner. The view menu switches to a single person's preview.", [
+    diagram("views.svg", "Two views, all five tabs", "The app opens as owner. Both views keep the five working wellness tabs.", [
         (340,100,280,"data/users.csv",["Alex, Jordan, and Sam","Saved wellness snapshots"]),
-        (70,260,360,"App owner view",["Directory, totals, and CSV controls","Inspect any user's saved data"]),
-        (530,260,360,"User view",["One person's habits and progress","Chat and themes, without login"])
+        (70,260,360,"App owner view",["Directory, totals, and CSV controls","Use all five tabs for a selected user"]),
+        (530,260,360,"User view",["Dashboard, fasting, and logger","Rewards, profile, and chat"])
     ], ["M420 210L250 255", "M540 210L710 255"], 410)
-    diagram("data-flow.svg", "How saved data reaches AuraFit", "The browser reads a snapshot. Import and reload replace the displayed dataset.", [
+    diagram("data-flow.svg", "CSV starting data and browser progress", "CSV seeds the starting stats. New actions stay in the browser; the source file stays unchanged.", [
         (30,125,240,"CSV file",["Editable rows and columns","One record per user"]),
         (360,125,240,"Python or Streamlit",["Packages the data safely","Builds the app page"]),
-        (690,125,240,"Your browser",["Choose a view and a user","See stats and chat replies"]),
+        (690,125,240,"Your browser",["Five tabs and chat","Per-user saved changes"]),
         (265,285,430,"Direct index.html preview",["Uses the included CSV copy","Import CSV loads an edited file"])
     ], ["M275 180L350 180", "M605 180L680 180", "M480 245L480 280", "M700 340L815 340L815 245"], 430)
-    diagram("iterations.svg", "How AuraFit evolved", "Six refinements shaped the app and its reader-friendly documents.", [
+    diagram("iterations.svg", "How AuraFit evolved", "Seven refinements restored the full app alongside CSV data and readable guides.", [
         (30,110,280,"1  Original app",["Five tabs, live tools, dark theme","Fasting, logs, XP, and coach"]),
         (340,110,280,"2  Themes and roles",["Six themes and user profiles","Owner directory and switching"]),
         (650,110,280,"3  CSV owner dashboard",["Three sample users, no login","Selected-user snapshot views"]),
         (30,280,280,"4  Chat and documents",["Restore the bottom-right coach","Plain-English guide and history"]),
         (340,280,280,"5  Streamlit and diagrams",["Readable themes and two views","Streamlit and formatted guides"]),
-        (650,280,280,"6  Reader-focused guides",["Short development summaries","Setup and everyday app use"])
-    ], ["M315 165L330 165", "M625 165L640 165", "M790 225L790 250L170 250L170 270", "M315 335L330 335", "M625 335L640 335"], 430)
+        (650,280,280,"6  Reader-focused guides",["Short development summaries","Setup and everyday app use"]),
+        (340,450,280,"7  Restore all five tabs",["Live tools plus CSV starting data","Browser regression checks"])
+    ], ["M315 165L330 165", "M625 165L640 165", "M790 225L790 250L170 250L170 270", "M315 335L330 335", "M625 335L640 335", "M790 395L790 420L480 420L480 440"], 595)
 
 
 def heading_title(text):
@@ -57,7 +58,7 @@ def heading_title(text):
 
 def text_to_markdown(text):
     lines=text.splitlines(); output=[]; i=0
-    subtitles={'What was requested:', 'What changed:', 'Windows', 'macOS or Linux', 'Later runs', 'Without Python', 'App owner view', 'User view', 'Choosing a person', 'Reload CSV', 'Import CSV', 'Download CSV', 'Read the dashboard', 'Theme menu', 'Using the chat'}
+    subtitles={'What was requested:', 'What changed:', 'Windows', 'macOS or Linux', 'Later runs', 'Without Python', 'App owner view', 'User view', 'Choosing a person', 'Reload CSV', 'Import CSV', 'Download CSV', 'Read the dashboard', 'Theme menu', 'Using the chat', 'Dashboard', 'Fasting Engine', 'Logger', 'Rewards Shop', 'Profile'}
     while i<len(lines):
         line=lines[i]
         if i+1<len(lines) and re.fullmatch(r'[=-]{3,}',lines[i+1]):
