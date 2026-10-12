@@ -1,0 +1,4 @@
+user_id,name,email,goal,available_xp,lifetime_xp,completed_fasts,streak_days,water_ml,water_goal_ml,activity_minutes,activity_goal_minutes,calories_kcal,meals_logged,fasting_status,fast_target_hours,fast_elapsed_hours,snapshot_date,last_active,joined_date,mon_hours,tue_hours,wed_hours,thu_hours,fri_hours,sat_hours,sun_hours
+AF001,Alex Morgan,alex@example.com,Build consistent habits,340,840,8,5,1750,2000,35,30,1450,3,active,16,9.5,2026-10-12,2026-10-12T09:30:00-04:00,2026-09-15,16,0,16,18,16,16,16
+AF002,Jordan Lee,jordan@example.com,Make more time for movement,120,620,6,3,2500,2500,60,45,1850,4,completed,18,18,2026-10-12,2026-10-12T10:15:00-04:00,2026-09-22,0,18,16,0,18,18,18
+AF003,Sam Rivera,sam@example.com,Practice mindful eating,75,175,1,1,900,1800,15,30,1200,2,idle,16,0,2026-10-12,2026-10-12T08:45:00-04:00,2026-10-05,0,0,0,0,0,0,16
