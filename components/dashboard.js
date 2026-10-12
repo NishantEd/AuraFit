@@ -1,9 +1,10 @@
 function renderDashboard(){
-  const info=fastInfo();const completed=state.history.filter(f=>f.completed).length;
+  const info=fastInfo();const completed=completedFastCount();
   const water=totalFor('water'),activity=totalFor('activity');
   const history=[...state.logs.map(l=>({at:l.at,title:l.type==='water'?`Hydration · ${l.amount} ml`:l.type==='activity'?`${l.label} · ${l.amount} min`:`${l.label} · ${l.amount} kcal`,icon:l.type==='water'?'◉':l.type==='meal'?'♧':'↗'})),...state.history.map(f=>({at:f.end,title:f.completed?'Fast completed · +100 XP':'Fast ended early',icon:'◷'}))].sort((a,b)=>b.at-a.at).slice(0,4);
   const greeting=new Date().getHours()<12?'Good morning':new Date().getHours()<18?'Good afternoon':'Good evening';
   return `${heading('YOUR WELLNESS, IN SYNC',`${greeting}, ${escapeHTML(state.profile.name)} <span style="font-size:24px">✦</span>`,'A little intention. A little consistency. A healthier you.')}
+  <p class="session-summary">CSV starting snapshot · ${state.baseline?.snapshot_date||'No baseline'}. Today’s goals include same-day CSV totals and your new logs. Start a new live timer in Fasting Engine; a recorded CSV status does not start a timer.</p>
   <section class="grid metrics" aria-label="Your metrics">
     ${metric('Fasting streak',streak(),'days',streak()?'Keep the momentum going':'Your next chapter starts today','♨')}
     ${metric('Available XP',state.xp,'XP',`Level ${level()} · ${state.totalXP} lifetime XP`,'✧')}
