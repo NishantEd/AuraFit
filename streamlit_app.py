@@ -18,7 +18,7 @@ with st.sidebar:
 
 if page == "App":
     st.caption("AuraFit · Use the theme and view menus inside the app. Scroll inside the app panel to see more.")
-    st.iframe(render_html(embedded=True), height=950, alt="AuraFit interactive app with owner and user views")
+    st.iframe(render_html(embedded=True), height=720, alt="AuraFit interactive app with owner and user views")
 else:
     documents = {"Project guide": "PROJECT_GUIDE", "Project history": "PROJECT_HISTORY"}
     stem = documents[page]

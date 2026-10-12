@@ -132,12 +132,34 @@ messages. The guide explains local setup, both views, the dashboard, CSV
 controls, themes, and chat. Its commands are limited to running the app.
 
 
+## 7. Restore All Five Working Tabs
+
+
+
+### What was requested
+
+
+Bring back the original tabs, preserve existing features when making
+updates, test the combined app, and explain each tab in the documentation.
+
+
+### What changed
+
+
+The five original tab components were reconnected alongside the CSV owner
+dashboard. Fasting timers, journals, reward claims, settings, export, and
+reset work separately for each sample user. CSV starting data is combined
+with saved browser progress. The guide and README explain each tab, and
+browser regression checks exercise both views and the existing features.
+
+
 ## Current App
 
 
-AuraFit now provides three sample profiles, owner and user snapshot views,
-six themes, a rule-based chat companion, and a Streamlit display. The CSV
-holds saved sample data. No login or external AI service is required.
+AuraFit now provides three sample profiles, five working tabs, owner and
+user views, six themes, a rule-based chat companion, and a Streamlit display.
+The CSV holds starting data; the browser saves each person's new progress.
+No login or external AI service is required.
 
 The project guide contains the setup and usage instructions for people
 who download the repository.

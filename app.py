@@ -11,8 +11,10 @@ ROOT = Path(__file__).resolve().parent
 def render_html(csv_text=None, embedded=False):
     template = (ROOT / "components" / "shell.html").read_text(encoding="utf-8")
     styles = (ROOT / "utils" / "styles.css").read_text(encoding="utf-8")
-    sources = ["utils/owner-state.js", "utils/themes.js", "utils/csv.js",
-               "components/csv-owner.js", "components/owner-coach.js", "utils/owner-app.js"]
+    sources = ["utils/state.js", "utils/themes.js", "utils/csv.js", "utils/live-users.js",
+               "components/dashboard.js", "components/fasting.js", "components/logger.js",
+               "components/rewards.js", "components/profile.js", "components/csv-owner.js",
+               "components/owner-coach.js", "utils/owner-app.js"]
     if csv_text is None:
         csv_text = (ROOT / "data" / "users.csv").read_text(encoding="utf-8-sig")
     bundled_csv = json.dumps(csv_text, ensure_ascii=True).replace("<", "\\u003c")
