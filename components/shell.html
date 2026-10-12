@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="description" content="AuraFit owner dashboard — explore user wellness snapshots from CSV, without a login.">
+  <title>AuraFit · Owner Console</title>
+  <style>{{STYLES}}</style>
+</head>
+<body>
+  <svg aria-hidden="true" class="svg-defs"><defs><linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B79AFF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+  <header class="navbar">
+    <a class="brand" href="#dashboard" aria-label="AuraFit dashboard"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 25C17 9 3 13 5 25c2 12 14 10 19 0s17-12 19 0c2 12-12 16-19 0Z" fill="none" stroke="url(#brand-gradient)" stroke-width="3.5"/><path d="m28 3-14 23h10l-4 19 15-25H25Z" fill="url(#brand-gradient)" stroke="#0B0F19" stroke-width="1.5"/></svg><span>AuraFit<span class="brand-dot">.</span></span></a>
+    <nav aria-label="Main navigation" id="navigation" hidden>
+      <button data-tab="dashboard"><span>▦</span> Dashboard</button><button data-tab="fasting"><span>◷</span> Fasting Engine</button><button data-tab="logger"><span>♧</span> Logger</button><button data-tab="rewards"><span>♜</span> Rewards Shop</button><button data-tab="profile"><span>⚙</span> Profile</button>
+    </nav>
+    <div class="nav-tools"><label class="theme-control" for="theme-select"><span aria-hidden="true">◐</span><span class="sr-only">Website theme</span><select id="theme-select" aria-label="Website theme"><option value="obsidian">Obsidian Violet</option><option value="ocean">Midnight Ocean</option><option value="forest">Forest Emerald</option><option value="rose">Velvet Rose</option><option value="amber">Golden Hour</option><option value="daylight">Daylight</option></select></label><label class="view-toggle" for="app-view"><span class="sr-only">App view</span><select id="app-view" aria-label="App view"><option value="owner">App owner view</option><option value="user">User view</option></select></label></div>
+  </header>
+  <section class="view-context" id="view-context" aria-label="Current workspace view" hidden></section>
+  <main id="main" tabindex="-1"></main>
+  <footer class="footer"><span><span class="tiny-dot"></span> YOUR RHYTHM. YOUR PROGRESS.</span><span>AuraFit · Built around you</span></footer>
+  <aside class="coach" id="coach" aria-label="Aura AI health coach">
+    <div class="coach-header"><span class="coach-icon">✧</span><div><strong>Aura AI</strong><small><i></i> <span id="coach-context">Owner companion</span></small></div><button id="coach-toggle" aria-label="Collapse coach" aria-expanded="true">−</button></div>
+    <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-label="Conversation"></div>
+    <button class="motivation" id="motivation">✨ Random Motivation</button>
+    <form id="chat-form"><label class="sr-only" for="chat-input">Message Aura AI</label><input id="chat-input" maxlength="500" placeholder="Ask Aura anything…" required autocomplete="off"><button aria-label="Send message">↑</button></form>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script>{{SCRIPT}}</script>
+</body>
+</html>
