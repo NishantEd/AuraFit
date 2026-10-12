@@ -1,0 +1,175 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Project Guide</title><style>body{margin:0;background:#f4f6fb;color:#172033;font:16px/1.75 system-ui,Segoe UI,sans-serif}main{max-width:980px;margin:auto;padding:36px 28px 80px}h1{font-size:36px;line-height:1.2;color:#3f1b79}h2{margin-top:44px;border-bottom:1px solid #d6deec;padding-bottom:10px;color:#45208c}h3{margin-top:25px;color:#334155}a{color:#6d28d9}nav{padding:20px 25px;background:white;border:1px solid #d6deec;border-radius:14px}nav h2{margin:0;font-size:19px;border:0}nav ul{margin:8px 0;padding-left:20px}nav ul ul{display:none}pre{padding:18px;background:#e9edf7;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;font-size:14px}code{font-family:Consolas,monospace}img{width:100%;height:auto;margin:15px 0;border-radius:16px}table{width:100%;border-collapse:collapse;font-size:14px}td,th{border:1px solid #d6deec;padding:10px;text-align:left}th{background:#e9edf7}blockquote{border-left:4px solid #8b5cf6;margin:20px 0;padding:10px 20px;background:white}li{margin:5px 0}@media(max-width:600px){main{padding:20px 16px}h1{font-size:28px}}</style></head><body><main><nav aria-label="Table of contents"><h2>Contents</h2><div class="toc">
+<ul>
+<li><a href="#aurafit-user-guide">AuraFit User Guide</a><ul>
+<li><a href="#1-what-aurafit-does">1. What AuraFit Does</a></li>
+<li><a href="#2-download-and-open-the-project-folder">2. Download And Open The Project Folder</a></li>
+<li><a href="#3-run-the-app-in-streamlit">3. Run The App In Streamlit</a><ul>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#macos-or-linux">macOS or Linux</a></li>
+<li><a href="#later-runs">Later runs</a></li>
+<li><a href="#without-python">Without Python</a></li>
+</ul>
+</li>
+<li><a href="#4-explore-the-dashboard">4. Explore The Dashboard</a><ul>
+<li><a href="#read-the-dashboard">Read the dashboard</a></li>
+<li><a href="#theme-menu">Theme menu</a></li>
+</ul>
+</li>
+<li><a href="#5-switch-between-the-two-views">5. Switch Between The Two Views</a><ul>
+<li><a href="#app-owner-view">App owner view</a></li>
+<li><a href="#user-view">User view</a></li>
+<li><a href="#choosing-a-person">Choosing a person</a></li>
+</ul>
+</li>
+<li><a href="#6-use-the-csv-data">6. Use The CSV Data</a><ul>
+<li><a href="#reload-csv">Reload CSV</a></li>
+<li><a href="#import-csv">Import CSV</a></li>
+<li><a href="#download-csv">Download CSV</a></li>
+</ul>
+</li>
+<li><a href="#7-chat-with-aura">7. Chat With Aura</a><ul>
+<li><a href="#using-the-chat">Using the chat</a></li>
+</ul>
+</li>
+<li><a href="#8-what-is-saved">8. What Is Saved</a></li>
+<li><a href="#9-common-setup-and-usage-problems">9. Common Setup And Usage Problems</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav><h1 id="aurafit-user-guide">AuraFit User Guide</h1>
+<p>This guide explains how to run AuraFit after downloading the repository
+and how to use its dashboard. No coding experience is needed. The HTML
+copy has a clickable contents list and diagrams; the Markdown copy displays
+with formatting on GitHub.</p>
+<h2 id="1-what-aurafit-does">1. What AuraFit Does</h2>
+<p>AuraFit displays saved wellness information for three fictional users:
+Alex Morgan, Jordan Lee, and Sam Rivera. You can see fasting progress,
+water intake, movement, meals, and progress points. A small chat companion
+can explain the selected person's statistics and offer motivation.</p>
+<p>The app opens in App owner view. A top-right menu switches to User view.
+Neither mode requires a login. Both show read-only CSV snapshots; the app
+does not collect live data from phones or fitness devices.</p>
+<h2 id="2-download-and-open-the-project-folder">2. Download And Open The Project Folder</h2>
+<p>On the repository's GitHub page, choose Code, then Download ZIP. Extract
+the ZIP and open the extracted project folder. Keep the files and folders
+together. You should see streamlit_app.py, requirements.txt, index.html,
+and the components, utils, and data folders.</p>
+<p>For the full Streamlit experience, install Python 3.12 on your computer.
+On Windows, select the option to add Python to PATH during installation.
+Open a terminal inside the extracted folder: on Windows, right-click in
+the folder and choose Open in Terminal. On other systems, open a terminal
+and navigate to that folder.</p>
+<h2 id="3-run-the-app-in-streamlit">3. Run The App In Streamlit</h2>
+<h3 id="windows">Windows</h3>
+<p>Run these commands one at a time in the project folder:</p>
+<pre><code>python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
+</code></pre>
+<p>The first command creates a separate place for the app's Python packages.
+The second installs them; it needs an internet connection. The third starts
+the app. You do not need to activate the environment separately.</p>
+<h3 id="macos-or-linux">macOS or Linux</h3>
+<pre><code>python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m streamlit run streamlit_app.py
+</code></pre>
+<p>Open http://localhost:8501 in your browser. Keep the terminal running while
+you use the app. Press Ctrl+C in that terminal when you want to stop it.
+The app runs on your own computer; these steps do not publish it online.</p>
+<h3 id="later-runs">Later runs</h3>
+<p>Once setup is complete, only run the final Streamlit command for your system.
+You do not need to create the environment or reinstall the packages each time.</p>
+<h3 id="without-python">Without Python</h3>
+<p>Double-click index.html to preview the app directly in your browser. This
+uses the sample data included inside the page and does not need installation.
+Use Import CSV to load an edited dataset. The Streamlit document sidebar
+is available only when running through Streamlit.</p>
+<h2 id="4-explore-the-dashboard">4. Explore The Dashboard</h2>
+<h3 id="read-the-dashboard">Read the dashboard</h3>
+<p>Available XP means progress points currently available. Lifetime XP means
+all points earned. Completed fasts counts finished sessions. Streak shows
+recorded consecutive days with completed fasts. Hydration is measured in
+milliliters, movement in minutes, and food energy in kcal.</p>
+<p>The fasting ring compares saved elapsed hours with the target duration.
+The weekly chart shows saved Monday-to-Sunday fasting hours. An active
+fasting snapshot is highlighted in red. The sample records are dated
+October 12, 2026, so they should not be treated as current live activity.</p>
+<h3 id="theme-menu">Theme menu</h3>
+<p>Choose one of six themes in the top-right menu: Obsidian Violet, Midnight
+Ocean, Forest Emerald, Velvet Rose, Golden Hour, or Daylight. The colors of
+the dashboard and chat change together. Your browser remembers the theme.</p>
+<p>In Streamlit, scroll inside the app panel to reach more dashboard content.
+Use the sidebar to open the project guide or development history.</p>
+<h2 id="5-switch-between-the-two-views">5. Switch Between The Two Views</h2>
+<p><img alt="App owner and user views" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NjAgNDEwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+DQogICAgPHRpdGxlIGlkPSJ0aXRsZSI+VHdvIHZpZXdzLCBvbmUgQ1NWIGRhdGFzZXQ8L3RpdGxlPjxkZXNjIGlkPSJkZXNjIj5UaGUgYXBwIG9wZW5zIGFzIG93bmVyLiBUaGUgdmlldyBtZW51IHN3aXRjaGVzIHRvIGEgc2luZ2xlIHBlcnNvbiYjeDI3O3MgcHJldmlldy48L2Rlc2M+DQogICAgPGRlZnM+PG1hcmtlciBpZD0iYXJyb3ciIG1hcmtlcldpZHRoPSI4IiBtYXJrZXJIZWlnaHQ9IjgiIHJlZlg9IjciIHJlZlk9IjQiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTTAgMEw4IDRMMCA4WiIgZmlsbD0iI0I5OUFGRiIvPjwvbWFya2VyPjwvZGVmcz4NCiAgICA8cmVjdCB3aWR0aD0iOTYwIiBoZWlnaHQ9IjQxMCIgcng9IjIyIiBmaWxsPSIjMEIwRjE5Ii8+DQogICAgPGcgZm9udC1mYW1pbHk9IlNlZ29lIFVJLEFyaWFsLHNhbnMtc2VyaWYiPjx0ZXh0IHg9IjMwIiB5PSI0MiIgZmlsbD0iI0Y5RkFGQiIgZm9udC1zaXplPSIyMyIgZm9udC13ZWlnaHQ9IjcwMCI+VHdvIHZpZXdzLCBvbmUgQ1NWIGRhdGFzZXQ8L3RleHQ+DQogICAgPHRleHQgeD0iMzAiIHk9IjcwIiBmaWxsPSIjOUNBM0FGIiBmb250LXNpemU9IjE0Ij5UaGUgYXBwIG9wZW5zIGFzIG93bmVyLiBUaGUgdmlldyBtZW51IHN3aXRjaGVzIHRvIGEgc2luZ2xlIHBlcnNvbiYjeDI3O3MgcHJldmlldy48L3RleHQ+PHJlY3QgeD0iMzQwIiB5PSIxMDAiIHdpZHRoPSIyODAiIGhlaWdodD0iMTEwIiByeD0iMTYiIGZpbGw9IiMxNjFGMzAiIHN0cm9rZT0iIzhCNUNGNiIvPjx0ZXh0IHg9IjM1OCIgeT0iMTMyIiBmaWxsPSIjRjlGQUZCIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNzAwIj5kYXRhL3VzZXJzLmNzdjwvdGV4dD48dGV4dCB4PSIzNTgiIHk9IjE2MCIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+QWxleCwgSm9yZGFuLCBhbmQgU2FtPC90ZXh0Pjx0ZXh0IHg9IjM1OCIgeT0iMTgyIiBmaWxsPSIjQjhDMkQ0IiBmb250LXNpemU9IjE0Ij5TYXZlZCB3ZWxsbmVzcyBzbmFwc2hvdHM8L3RleHQ+PHJlY3QgeD0iNzAiIHk9IjI2MCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIxMTAiIHJ4PSIxNiIgZmlsbD0iIzE2MUYzMCIgc3Ryb2tlPSIjOEI1Q0Y2Ii8+PHRleHQgeD0iODgiIHk9IjI5MiIgZmlsbD0iI0Y5RkFGQiIgZm9udC1zaXplPSIxOSIgZm9udC13ZWlnaHQ9IjcwMCI+QXBwIG93bmVyIHZpZXc8L3RleHQ+PHRleHQgeD0iODgiIHk9IjMyMCIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+RGlyZWN0b3J5LCB0b3RhbHMsIGFuZCBDU1YgY29udHJvbHM8L3RleHQ+PHRleHQgeD0iODgiIHk9IjM0MiIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+SW5zcGVjdCBhbnkgdXNlciYjeDI3O3Mgc2F2ZWQgZGF0YTwvdGV4dD48cmVjdCB4PSI1MzAiIHk9IjI2MCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSIxMTAiIHJ4PSIxNiIgZmlsbD0iIzE2MUYzMCIgc3Ryb2tlPSIjOEI1Q0Y2Ii8+PHRleHQgeD0iNTQ4IiB5PSIyOTIiIGZpbGw9IiNGOUZBRkIiIGZvbnQtc2l6ZT0iMTkiIGZvbnQtd2VpZ2h0PSI3MDAiPlVzZXIgdmlldzwvdGV4dD48dGV4dCB4PSI1NDgiIHk9IjMyMCIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+T25lIHBlcnNvbiYjeDI3O3MgaGFiaXRzIGFuZCBwcm9ncmVzczwvdGV4dD48dGV4dCB4PSI1NDgiIHk9IjM0MiIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+Q2hhdCBhbmQgdGhlbWVzLCB3aXRob3V0IGxvZ2luPC90ZXh0PjxwYXRoIGQ9Ik00MjAgMjEwTDI1MCAyNTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0I5OUFGRiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93KSIvPjxwYXRoIGQ9Ik01NDAgMjEwTDcxMCAyNTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0I5OUFGRiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93KSIvPjwvZz48L3N2Zz4=" /></p>
+<h3 id="app-owner-view">App owner view</h3>
+<p>The default view shows the user directory and combined statistics. Choose
+a person in View user data, or select their View data button. The dashboard
+then shows only that person's stats. Choose All users to return to the
+directory. The owner view also has CSV management buttons.</p>
+<h3 id="user-view">User view</h3>
+<p>Choose User view from the top-right view menu. This focuses on one person's
+saved wellness progress and hides the directory, community totals, and CSV
+management buttons. The preview menu lets you try each sample profile.</p>
+<h3 id="choosing-a-person">Choosing a person</h3>
+<p>If you switch to User view while a person is selected, that profile stays
+selected. If none was selected, the first sample profile opens. Switching
+back restores the previous owner selection. The chat remains available.
+These are preview modes, not protected accounts or login permissions.</p>
+<h2 id="6-use-the-csv-data">6. Use The CSV Data</h2>
+<p><img alt="How CSV data reaches the app" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NjAgNDMwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idGl0bGUgZGVzYyI+DQogICAgPHRpdGxlIGlkPSJ0aXRsZSI+SG93IHNhdmVkIGRhdGEgcmVhY2hlcyBBdXJhRml0PC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+VGhlIGJyb3dzZXIgcmVhZHMgYSBzbmFwc2hvdC4gSW1wb3J0IGFuZCByZWxvYWQgcmVwbGFjZSB0aGUgZGlzcGxheWVkIGRhdGFzZXQuPC9kZXNjPg0KICAgIDxkZWZzPjxtYXJrZXIgaWQ9ImFycm93IiBtYXJrZXJXaWR0aD0iOCIgbWFya2VySGVpZ2h0PSI4IiByZWZYPSI3IiByZWZZPSI0IiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0wIDBMOCA0TDAgOFoiIGZpbGw9IiNCOTlBRkYiLz48L21hcmtlcj48L2RlZnM+DQogICAgPHJlY3Qgd2lkdGg9Ijk2MCIgaGVpZ2h0PSI0MzAiIHJ4PSIyMiIgZmlsbD0iIzBCMEYxOSIvPg0KICAgIDxnIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSxBcmlhbCxzYW5zLXNlcmlmIj48dGV4dCB4PSIzMCIgeT0iNDIiIGZpbGw9IiNGOUZBRkIiIGZvbnQtc2l6ZT0iMjMiIGZvbnQtd2VpZ2h0PSI3MDAiPkhvdyBzYXZlZCBkYXRhIHJlYWNoZXMgQXVyYUZpdDwvdGV4dD4NCiAgICA8dGV4dCB4PSIzMCIgeT0iNzAiIGZpbGw9IiM5Q0EzQUYiIGZvbnQtc2l6ZT0iMTQiPlRoZSBicm93c2VyIHJlYWRzIGEgc25hcHNob3QuIEltcG9ydCBhbmQgcmVsb2FkIHJlcGxhY2UgdGhlIGRpc3BsYXllZCBkYXRhc2V0LjwvdGV4dD48cmVjdCB4PSIzMCIgeT0iMTI1IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjExMCIgcng9IjE2IiBmaWxsPSIjMTYxRjMwIiBzdHJva2U9IiM4QjVDRjYiLz48dGV4dCB4PSI0OCIgeT0iMTU3IiBmaWxsPSIjRjlGQUZCIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNzAwIj5DU1YgZmlsZTwvdGV4dD48dGV4dCB4PSI0OCIgeT0iMTg1IiBmaWxsPSIjQjhDMkQ0IiBmb250LXNpemU9IjE0Ij5FZGl0YWJsZSByb3dzIGFuZCBjb2x1bW5zPC90ZXh0Pjx0ZXh0IHg9IjQ4IiB5PSIyMDciIGZpbGw9IiNCOEMyRDQiIGZvbnQtc2l6ZT0iMTQiPk9uZSByZWNvcmQgcGVyIHVzZXI8L3RleHQ+PHJlY3QgeD0iMzYwIiB5PSIxMjUiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTEwIiByeD0iMTYiIGZpbGw9IiMxNjFGMzAiIHN0cm9rZT0iIzhCNUNGNiIvPjx0ZXh0IHg9IjM3OCIgeT0iMTU3IiBmaWxsPSIjRjlGQUZCIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNzAwIj5QeXRob24gb3IgU3RyZWFtbGl0PC90ZXh0Pjx0ZXh0IHg9IjM3OCIgeT0iMTg1IiBmaWxsPSIjQjhDMkQ0IiBmb250LXNpemU9IjE0Ij5QYWNrYWdlcyB0aGUgZGF0YSBzYWZlbHk8L3RleHQ+PHRleHQgeD0iMzc4IiB5PSIyMDciIGZpbGw9IiNCOEMyRDQiIGZvbnQtc2l6ZT0iMTQiPkJ1aWxkcyB0aGUgYXBwIHBhZ2U8L3RleHQ+PHJlY3QgeD0iNjkwIiB5PSIxMjUiIHdpZHRoPSIyNDAiIGhlaWdodD0iMTEwIiByeD0iMTYiIGZpbGw9IiMxNjFGMzAiIHN0cm9rZT0iIzhCNUNGNiIvPjx0ZXh0IHg9IjcwOCIgeT0iMTU3IiBmaWxsPSIjRjlGQUZCIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNzAwIj5Zb3VyIGJyb3dzZXI8L3RleHQ+PHRleHQgeD0iNzA4IiB5PSIxODUiIGZpbGw9IiNCOEMyRDQiIGZvbnQtc2l6ZT0iMTQiPkNob29zZSBhIHZpZXcgYW5kIGEgdXNlcjwvdGV4dD48dGV4dCB4PSI3MDgiIHk9IjIwNyIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+U2VlIHN0YXRzIGFuZCBjaGF0IHJlcGxpZXM8L3RleHQ+PHJlY3QgeD0iMjY1IiB5PSIyODUiIHdpZHRoPSI0MzAiIGhlaWdodD0iMTEwIiByeD0iMTYiIGZpbGw9IiMxNjFGMzAiIHN0cm9rZT0iIzhCNUNGNiIvPjx0ZXh0IHg9IjI4MyIgeT0iMzE3IiBmaWxsPSIjRjlGQUZCIiBmb250LXNpemU9IjE5IiBmb250LXdlaWdodD0iNzAwIj5EaXJlY3QgaW5kZXguaHRtbCBwcmV2aWV3PC90ZXh0Pjx0ZXh0IHg9IjI4MyIgeT0iMzQ1IiBmaWxsPSIjQjhDMkQ0IiBmb250LXNpemU9IjE0Ij5Vc2VzIHRoZSBpbmNsdWRlZCBDU1YgY29weTwvdGV4dD48dGV4dCB4PSIyODMiIHk9IjM2NyIgZmlsbD0iI0I4QzJENCIgZm9udC1zaXplPSIxNCI+SW1wb3J0IENTViBsb2FkcyBhbiBlZGl0ZWQgZmlsZTwvdGV4dD48cGF0aCBkPSJNMjc1IDE4MEwzNTAgMTgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNCOTlBRkYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNhcnJvdykiLz48cGF0aCBkPSJNNjA1IDE4MEw2ODAgMTgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNCOTlBRkYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNhcnJvdykiLz48cGF0aCBkPSJNNDgwIDI0NUw0ODAgMjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNCOTlBRkYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNhcnJvdykiLz48cGF0aCBkPSJNNzAwIDM0MEw4MTUgMzQwTDgxNSAyNDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0I5OUFGRiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2Fycm93KSIvPjwvZz48L3N2Zz4=" /></p>
+<p>CSV is a simple spreadsheet-like text file. The supplied dataset lives in
+data/users.csv, with one row per person. Keep its column names unchanged.
+You can edit values in a text editor or spreadsheet program and save as
+UTF-8 CSV. The README lists the columns and allowed values.</p>
+<h3 id="reload-csv">Reload CSV</h3>
+<p>In Streamlit, use Refresh source CSV in the sidebar after editing the file.
+This recreates the app panel, so its selection and chat reset. The Reload
+CSV button inside the panel explains this sidebar action.</p>
+<h3 id="import-csv">Import CSV</h3>
+<p>In App owner view, choose Import CSV and select a file on your computer.
+The imported data is shown for the current page session. It does not replace
+the file on disk. Import also works in a direct index.html preview.</p>
+<h3 id="download-csv">Download CSV</h3>
+<p>Download CSV saves a copy of the dataset currently loaded in the app panel,
+including imported data. It contains all rows even if one profile is selected.
+The separate Streamlit sidebar download always provides the source file.</p>
+<p>Invalid files are rejected without replacing the displayed data. Imports
+must be smaller than 2 MB. Reloading the page returns to the source dataset.
+Selecting a person does not change their statistics or recorded activity.</p>
+<h2 id="7-chat-with-aura">7. Chat With Aura</h2>
+<h3 id="using-the-chat">Using the chat</h3>
+<p>The agent stays at the bottom right. Type a message and press Enter or use
+the send arrow. Try asking about water, movement, progress, fasting rules,
+hunger, or motivation. Random Motivation gives an encouraging message
+without typing. The minus button collapses the chat; plus opens it again.</p>
+<p>When a person is selected, questions about their statistics use only their
+CSV snapshot. Each selection keeps a separate conversation during the
+page session. Conversations disappear when the page is reloaded.</p>
+<p>Aura uses keywords and preset replies, not an external AI service. It does
+not change the CSV, answer every possible question, or give personalized
+medical advice. On narrow screens, collapse it when you need more space.</p>
+<h2 id="8-what-is-saved">8. What Is Saved</h2>
+<p>The CSV holds the source statistics. The direct HTML preview also includes
+a bundled copy. Your browser stores the theme choice. Imported data and
+chat conversations last only while the current page remains open.</p>
+<p>The app does not automatically synchronize with other computers, create
+online accounts, track real-time sessions, or issue real reward vouchers.</p>
+<h2 id="9-common-setup-and-usage-problems">9. Common Setup And Usage Problems</h2>
+<p>Python is not recognized: Check that Python 3.12 is installed and available
+in your terminal. On Windows, you can use py instead of python for the first
+setup command if the Python launcher is installed.</p>
+<p>The launch file cannot be found: Make sure the terminal is in the extracted
+project folder containing streamlit_app.py and requirements.txt.</p>
+<p>Installation fails: Check the internet connection and read the error message
+in the terminal. Confirm that you are using Python 3.12.</p>
+<p>Port 8501 is busy: Use the address printed by Streamlit if it starts on a
+different port, or stop an earlier Streamlit instance with Ctrl+C.</p>
+<p>CSV changes are missing: Use Refresh source CSV in Streamlit. If you opened
+index.html directly, use Import CSV to load the edited file.</p>
+<p>Chat seems missing: Scroll within the app panel and check its bottom-right
+corner. If it is collapsed, select plus to expand it.</p>
+<p>Import is rejected: Check the header names, unique user IDs, dates, numbers,
+and CSV quoting against the README. The current data remains available.</p></main></body></html>

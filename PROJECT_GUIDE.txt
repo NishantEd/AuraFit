@@ -1,0 +1,200 @@
+AURAFIT USER GUIDE
+=================
+
+This guide explains how to run AuraFit after downloading the repository
+and how to use its dashboard. No coding experience is needed. The HTML
+copy has a clickable contents list and diagrams; the Markdown copy displays
+with formatting on GitHub.
+
+1. WHAT AURAFIT DOES
+-------------------
+
+AuraFit displays saved wellness information for three fictional users:
+Alex Morgan, Jordan Lee, and Sam Rivera. You can see fasting progress,
+water intake, movement, meals, and progress points. A small chat companion
+can explain the selected person's statistics and offer motivation.
+
+The app opens in App owner view. A top-right menu switches to User view.
+Neither mode requires a login. Both show read-only CSV snapshots; the app
+does not collect live data from phones or fitness devices.
+
+2. DOWNLOAD AND OPEN THE PROJECT FOLDER
+--------------------------------------
+
+On the repository's GitHub page, choose Code, then Download ZIP. Extract
+the ZIP and open the extracted project folder. Keep the files and folders
+together. You should see streamlit_app.py, requirements.txt, index.html,
+and the components, utils, and data folders.
+
+For the full Streamlit experience, install Python 3.12 on your computer.
+On Windows, select the option to add Python to PATH during installation.
+Open a terminal inside the extracted folder: on Windows, right-click in
+the folder and choose Open in Terminal. On other systems, open a terminal
+and navigate to that folder.
+
+3. RUN THE APP IN STREAMLIT
+--------------------------
+
+Windows
+
+Run these commands one at a time in the project folder:
+
+    python -m venv .venv
+    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+    .\.venv\Scripts\python.exe -m streamlit run streamlit_app.py
+
+The first command creates a separate place for the app's Python packages.
+The second installs them; it needs an internet connection. The third starts
+the app. You do not need to activate the environment separately.
+
+macOS or Linux
+
+    python3 -m venv .venv
+    .venv/bin/python -m pip install -r requirements.txt
+    .venv/bin/python -m streamlit run streamlit_app.py
+
+Open http://localhost:8501 in your browser. Keep the terminal running while
+you use the app. Press Ctrl+C in that terminal when you want to stop it.
+The app runs on your own computer; these steps do not publish it online.
+
+Later runs
+
+Once setup is complete, only run the final Streamlit command for your system.
+You do not need to create the environment or reinstall the packages each time.
+
+Without Python
+
+Double-click index.html to preview the app directly in your browser. This
+uses the sample data included inside the page and does not need installation.
+Use Import CSV to load an edited dataset. The Streamlit document sidebar
+is available only when running through Streamlit.
+
+4. EXPLORE THE DASHBOARD
+-----------------------
+
+Read the dashboard
+
+Available XP means progress points currently available. Lifetime XP means
+all points earned. Completed fasts counts finished sessions. Streak shows
+recorded consecutive days with completed fasts. Hydration is measured in
+milliliters, movement in minutes, and food energy in kcal.
+
+The fasting ring compares saved elapsed hours with the target duration.
+The weekly chart shows saved Monday-to-Sunday fasting hours. An active
+fasting snapshot is highlighted in red. The sample records are dated
+October 12, 2026, so they should not be treated as current live activity.
+
+Theme menu
+
+Choose one of six themes in the top-right menu: Obsidian Violet, Midnight
+Ocean, Forest Emerald, Velvet Rose, Golden Hour, or Daylight. The colors of
+the dashboard and chat change together. Your browser remembers the theme.
+
+In Streamlit, scroll inside the app panel to reach more dashboard content.
+Use the sidebar to open the project guide or development history.
+
+5. SWITCH BETWEEN THE TWO VIEWS
+------------------------------
+
+App owner view
+
+The default view shows the user directory and combined statistics. Choose
+a person in View user data, or select their View data button. The dashboard
+then shows only that person's stats. Choose All users to return to the
+directory. The owner view also has CSV management buttons.
+
+User view
+
+Choose User view from the top-right view menu. This focuses on one person's
+saved wellness progress and hides the directory, community totals, and CSV
+management buttons. The preview menu lets you try each sample profile.
+
+Choosing a person
+
+If you switch to User view while a person is selected, that profile stays
+selected. If none was selected, the first sample profile opens. Switching
+back restores the previous owner selection. The chat remains available.
+These are preview modes, not protected accounts or login permissions.
+
+6. USE THE CSV DATA
+------------------
+
+CSV is a simple spreadsheet-like text file. The supplied dataset lives in
+data/users.csv, with one row per person. Keep its column names unchanged.
+You can edit values in a text editor or spreadsheet program and save as
+UTF-8 CSV. The README lists the columns and allowed values.
+
+Reload CSV
+
+In Streamlit, use Refresh source CSV in the sidebar after editing the file.
+This recreates the app panel, so its selection and chat reset. The Reload
+CSV button inside the panel explains this sidebar action.
+
+Import CSV
+
+In App owner view, choose Import CSV and select a file on your computer.
+The imported data is shown for the current page session. It does not replace
+the file on disk. Import also works in a direct index.html preview.
+
+Download CSV
+
+Download CSV saves a copy of the dataset currently loaded in the app panel,
+including imported data. It contains all rows even if one profile is selected.
+The separate Streamlit sidebar download always provides the source file.
+
+Invalid files are rejected without replacing the displayed data. Imports
+must be smaller than 2 MB. Reloading the page returns to the source dataset.
+Selecting a person does not change their statistics or recorded activity.
+
+7. CHAT WITH AURA
+----------------
+
+Using the chat
+
+The agent stays at the bottom right. Type a message and press Enter or use
+the send arrow. Try asking about water, movement, progress, fasting rules,
+hunger, or motivation. Random Motivation gives an encouraging message
+without typing. The minus button collapses the chat; plus opens it again.
+
+When a person is selected, questions about their statistics use only their
+CSV snapshot. Each selection keeps a separate conversation during the
+page session. Conversations disappear when the page is reloaded.
+
+Aura uses keywords and preset replies, not an external AI service. It does
+not change the CSV, answer every possible question, or give personalized
+medical advice. On narrow screens, collapse it when you need more space.
+
+8. WHAT IS SAVED
+----------------
+
+The CSV holds the source statistics. The direct HTML preview also includes
+a bundled copy. Your browser stores the theme choice. Imported data and
+chat conversations last only while the current page remains open.
+
+The app does not automatically synchronize with other computers, create
+online accounts, track real-time sessions, or issue real reward vouchers.
+
+9. COMMON SETUP AND USAGE PROBLEMS
+--------------------------------
+
+Python is not recognized: Check that Python 3.12 is installed and available
+in your terminal. On Windows, you can use py instead of python for the first
+setup command if the Python launcher is installed.
+
+The launch file cannot be found: Make sure the terminal is in the extracted
+project folder containing streamlit_app.py and requirements.txt.
+
+Installation fails: Check the internet connection and read the error message
+in the terminal. Confirm that you are using Python 3.12.
+
+Port 8501 is busy: Use the address printed by Streamlit if it starts on a
+different port, or stop an earlier Streamlit instance with Ctrl+C.
+
+CSV changes are missing: Use Refresh source CSV in Streamlit. If you opened
+index.html directly, use Import CSV to load the edited file.
+
+Chat seems missing: Scroll within the app panel and check its bottom-right
+corner. If it is collapsed, select plus to expand it.
+
+Import is rejected: Check the header names, unique user IDs, dates, numbers,
+and CSV quoting against the README. The current data remains available.
